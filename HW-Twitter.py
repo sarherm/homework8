@@ -52,10 +52,20 @@ api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
 ## set the CACHE_DICTION to an empty dictionary
 ## see cache_example.py for example code
 
+try:
+    cache_file = open(CACHE_FNAME, 'r') # Try to read the data from the file
+    cache_contents = cache_file.read()  # If it's there, get it into a string
+    CACHE_DICTION = json.loads(cache_contents) # And then load it into a dictionary
+    cache_file.close() # Close the file, we're good, we got the data in a dictionary.
+except:
+    CACHE_DICTION = {}
+
+
 ## 2. Write a function to get twitter data that works with the caching pattern,
 ## 		so it either gets new data or caches data, depending upon what the input
 ##		to search for is.  See tweepy_example.py for example code that searches
 ##      for tweets with a given word or phrase
+
 
 ## 3. Loop three times.  Invoke your function.  Save the return value in a variable.
 
