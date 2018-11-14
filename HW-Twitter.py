@@ -6,6 +6,7 @@ import json
 ## SI 206 - HW
 ## COMMENT WITH:
 ## Any names of people you worked with on this assignment and what you did together
+#shared a tutor with Rachel Gordon and Sarah Fodor 
 
 ## Write code that uses the tweepy library to search for tweets with three different phrases of the
 ## user's choice (should use the Python input function), and prints out the Tweet text and the
