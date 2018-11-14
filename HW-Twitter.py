@@ -84,6 +84,8 @@ def get_twitter_data():
 
 
 ## 3. Loop three times.  Invoke your function.  Save the return value in a variable.
+## 4. write code to print out the text and created_at values from 5 tweets,
+## with a blank line after each as shown in the sample output
 for x in range(3):
 	results = get_twitter_data()
 	for y in results['statuses'][:5]:
@@ -94,8 +96,7 @@ for x in range(3):
 
 
 
-## 4. write code to print out the text and created_at values from 5 tweets,
-## with a blank line after each as shown in the sample output
+
 
 
 
