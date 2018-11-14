@@ -51,6 +51,7 @@ api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
 ## 1. Try to read in the cache from the CACHE_FNAME file. If it doesn't exist
 ## set the CACHE_DICTION to an empty dictionary
 ## see cache_example.py for example code
+CACHE_FNAME = 'twitter_data.json'
 
 try:
     cache_file = open(CACHE_FNAME, 'r') # Try to read the data from the file
@@ -65,6 +66,19 @@ except:
 ## 		so it either gets new data or caches data, depending upon what the input
 ##		to search for is.  See tweepy_example.py for example code that searches
 ##      for tweets with a given word or phrase
+def get_twitter_data(user_input= input("Enter something you'd like to search for: ")):
+	if user_input in CACHE_DICTION:
+		return CACHE_DICTION[user_input]
+	else: 
+		results = api.search(q = user_input)
+		CACHE_DICTION[user_input] = results
+		dump_json = json.dumps(CACHE_DICTION)
+		open_cache = open(CACHE_FNAME, 'w')
+		open_cache.write(dump_json)
+		open_cache.close()
+	return results
+print(get_twitter_data())
+
 
 
 ## 3. Loop three times.  Invoke your function.  Save the return value in a variable.
