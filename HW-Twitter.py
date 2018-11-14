@@ -66,7 +66,8 @@ except:
 ## 		so it either gets new data or caches data, depending upon what the input
 ##		to search for is.  See tweepy_example.py for example code that searches
 ##      for tweets with a given word or phrase
-def get_twitter_data(user_input= input("Enter something you'd like to search for: ")):
+def get_twitter_data():
+	user_input= input("Enter something you'd like to search for: ")
 	if user_input in CACHE_DICTION:
 		return CACHE_DICTION[user_input]
 	else: 
@@ -77,11 +78,61 @@ def get_twitter_data(user_input= input("Enter something you'd like to search for
 		open_cache.write(dump_json)
 		open_cache.close()
 	return results
-print(get_twitter_data())
+#print(get_twitter_data())
 
 
 
 ## 3. Loop three times.  Invoke your function.  Save the return value in a variable.
+for x in range(3):
+	results = get_twitter_data()
+	for y in results['statuses'][:5]:
+		print('TEXT: '+ y['text'])
+		print('CREATED AT: ' + y['created_at'])
+		print("\n")
+#print(len(looped_search))
+
+
 
 ## 4. write code to print out the text and created_at values from 5 tweets,
 ## with a blank line after each as shown in the sample output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
